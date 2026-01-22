@@ -1,9 +1,10 @@
 import {
-  BidiModule
-} from "./chunk-7ZOSJ2OZ.js";
+  Platform
+} from "./chunk-VPX6KCLO.js";
 import {
-  isPlatformBrowser
-} from "./chunk-5JRBXVLQ.js";
+  BidiModule
+} from "./chunk-H23WWH3K.js";
+import "./chunk-3TAY67O5.js";
 import {
   ChangeDetectionStrategy,
   Component,
@@ -11,10 +12,8 @@ import {
   DOCUMENT,
   Directive,
   ElementRef,
-  Injectable,
   Input,
   NgModule,
-  PLATFORM_ID,
   ViewEncapsulation,
   inject,
   setClassMetadata,
@@ -23,77 +22,13 @@ import {
   ɵɵcontentQuery,
   ɵɵdefineComponent,
   ɵɵdefineDirective,
-  ɵɵdefineInjectable,
   ɵɵdefineInjector,
   ɵɵdefineNgModule,
   ɵɵloadQuery,
   ɵɵprojection,
   ɵɵprojectionDef,
   ɵɵqueryRefresh
-} from "./chunk-YXYHJZHY.js";
-
-// node_modules/@angular/cdk/fesm2022/_platform-chunk.mjs
-var hasV8BreakIterator;
-try {
-  hasV8BreakIterator = typeof Intl !== "undefined" && Intl.v8BreakIterator;
-} catch {
-  hasV8BreakIterator = false;
-}
-var Platform = class _Platform {
-  _platformId = inject(PLATFORM_ID);
-  isBrowser = this._platformId ? isPlatformBrowser(this._platformId) : typeof document === "object" && !!document;
-  EDGE = this.isBrowser && /(edge)/i.test(navigator.userAgent);
-  TRIDENT = this.isBrowser && /(msie|trident)/i.test(navigator.userAgent);
-  BLINK = this.isBrowser && !!(window.chrome || hasV8BreakIterator) && typeof CSS !== "undefined" && !this.EDGE && !this.TRIDENT;
-  WEBKIT = this.isBrowser && /AppleWebKit/i.test(navigator.userAgent) && !this.BLINK && !this.EDGE && !this.TRIDENT;
-  IOS = this.isBrowser && /iPad|iPhone|iPod/.test(navigator.userAgent) && !("MSStream" in window);
-  FIREFOX = this.isBrowser && /(firefox|minefield)/i.test(navigator.userAgent);
-  ANDROID = this.isBrowser && /android/i.test(navigator.userAgent) && !this.TRIDENT;
-  SAFARI = this.isBrowser && /safari/i.test(navigator.userAgent) && this.WEBKIT;
-  constructor() {
-  }
-  static ɵfac = function Platform_Factory(__ngFactoryType__) {
-    return new (__ngFactoryType__ || _Platform)();
-  };
-  static ɵprov = ɵɵdefineInjectable({
-    token: _Platform,
-    factory: _Platform.ɵfac,
-    providedIn: "root"
-  });
-};
-(() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(Platform, [{
-    type: Injectable,
-    args: [{
-      providedIn: "root"
-    }]
-  }], () => [], null);
-})();
-
-// node_modules/@angular/cdk/fesm2022/_scrolling-chunk.mjs
-var RtlScrollAxisType;
-(function(RtlScrollAxisType2) {
-  RtlScrollAxisType2[RtlScrollAxisType2["NORMAL"] = 0] = "NORMAL";
-  RtlScrollAxisType2[RtlScrollAxisType2["NEGATED"] = 1] = "NEGATED";
-  RtlScrollAxisType2[RtlScrollAxisType2["INVERTED"] = 2] = "INVERTED";
-})(RtlScrollAxisType || (RtlScrollAxisType = {}));
-
-// node_modules/@angular/cdk/fesm2022/platform.mjs
-var PlatformModule = class _PlatformModule {
-  static ɵfac = function PlatformModule_Factory(__ngFactoryType__) {
-    return new (__ngFactoryType__ || _PlatformModule)();
-  };
-  static ɵmod = ɵɵdefineNgModule({
-    type: _PlatformModule
-  });
-  static ɵinj = ɵɵdefineInjector({});
-};
-(() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(PlatformModule, [{
-    type: NgModule,
-    args: [{}]
-  }], null, null);
-})();
+} from "./chunk-CGEMLEU2.js";
 
 // node_modules/@angular/material/fesm2022/toolbar.mjs
 var _c0 = ["*", [["mat-toolbar-row"]]];

@@ -1,20 +1,80 @@
-<p>dashboard works!</p>
-<mat-card>
-  <mat-card-title>Dashboard</mat-card-title>
-  <mat-card-content>
-    Welcome to the Online Course Management System
-  </mat-card-content>
-</mat-card>
 <mat-toolbar color="primary">
   Online Course Dashboard
 </mat-toolbar>
 
 <div style="padding: 16px">
   <mat-card>
+    <mat-card-title>Dashboard</mat-card-title>
+    <mat-card-content>
+      Welcome to the Online Course Management System
+    </mat-card-content>
+  </mat-card>
+
+  <br />
+
+  <mat-card>
     <mat-card-title>Welcome</mat-card-title>
     <mat-card-content>
       Your dashboard is ready 🎉
     </mat-card-content>
   </mat-card>
+  <div style="display: flex; gap: 16px; margin-top: 16px; flex-wrap: wrap">
+
+  <mat-card style="width: 250px">
+    <mat-card-title>Total Courses</mat-card-title>
+    <mat-card-content>
+      <h2>{{ totalCourses }}</h2>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card style="width: 250px">
+    <mat-card-title>Students Enrolled</mat-card-title>
+    <mat-card-content>
+      <h2>{{ totalStudents }}</h2>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card style="width: 250px">
+    <mat-card-title>Active Instructors</mat-card-title>
+    <mat-card-content>
+      <h2>{{ activeInstructors }}</h2>
+    </mat-card-content>
+  </mat-card>
+<h2 style="margin-top: 24px">Available Courses</h2>
+
+<div style="display: flex; gap: 16px; flex-wrap: wrap; margin-top: 16px">
+  <mat-card
+  *ngFor="let course of courses"
+  style="width: 250px"
+>
+  <mat-card-title>{{ course.title }}</mat-card-title>
+
+  <mat-card-content>
+    <p><strong>Instructor:</strong> {{ course.instructor }}</p>
+    <p><strong>Duration:</strong> {{ course.duration }}</p>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="enroll(course.title)"
+    >
+      Enroll
+    </button>
+
+    <button
+      mat-stroked-button
+      color="accent"
+      (click)="viewDetails(course.title)"
+    >
+      View
+    </button>
+  </mat-card-actions>
+</mat-card>
+
 </div>
 
+</div>
+
+</div>
