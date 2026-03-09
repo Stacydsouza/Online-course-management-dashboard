@@ -1,15 +1,15 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard';
-import { CourseDetails } from './course-details/course-details';
+import { CourseListComponent } from './components/course-list/course-list';
+import { CourseDetailComponent } from './components/course-detail/course-detail';
+import { StudentListComponent } from './components/student-list/student-list';
+import { EnrollmentComponent } from './components/enrollment/enrollment';
 
 export const routes: Routes = [
-  { path: '', component: DashboardComponent },
-  { path: 'course/:title', component: CourseDetails }
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'courses', component: CourseListComponent },
+  { path: 'course/:id', component: CourseDetailComponent },
+  { path: 'students', component: StudentListComponent },
+  { path: 'enroll', component: EnrollmentComponent }
 ];
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule {}

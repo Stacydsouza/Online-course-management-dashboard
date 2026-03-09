@@ -1,0 +1,63 @@
+<div style="padding: 24px; max-width: 800px; margin: 0 auto;">
+  <button mat-button color="primary" (click)="goBack()" style="margin-bottom: 16px;">
+    <mat-icon>arrow_back</mat-icon> Back to Courses
+  </button>
+
+  <div *ngIf="loading" style="display: flex; justify-content: center; padding: 48px;">
+    <mat-spinner diameter="48"></mat-spinner>
+  </div>
+
+  <mat-card *ngIf="!loading && course" style="padding: 24px;">
+    <mat-card-header style="margin-bottom: 24px; border-bottom: 1px solid #eee; padding-bottom: 16px;">
+      <div mat-card-avatar style="background-color: #3f51b5; color: white; display: flex; align-items: center; justify-content: center; border-radius: 4px; font-size: 24px; font-weight: bold;">
+        {{ course.title.charAt(0) }}
+      </div>
+      <mat-card-title style="font-size: 28px; color: #3f51b5;">{{ course.title }}</mat-card-title>
+      <mat-card-subtitle style="font-size: 16px; margin-top: 8px;">
+        <span style="background-color: #e8eaf6; padding: 4px 8px; border-radius: 4px; margin-right: 8px; color: #3f51b5;">{{ course.category }}</span>
+        <span style="background-color: #f3e5f5; padding: 4px 8px; border-radius: 4px; color: #9c27b0;">{{ course.level }}</span>
+        <span *ngIf="course.popular" style="background-color: #fff3e0; padding: 4px 8px; border-radius: 4px; color: #ff9800; margin-left: 8px;">
+          <mat-icon style="font-size: 16px; height: 16px; width: 16px; vertical-align: text-bottom;">star</mat-icon> Popular
+        </span>
+      </mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content style="font-size: 16px; line-height: 1.6; color: #444;">
+      <p style="margin-bottom: 24px; font-size: 18px;">{{ course.description }}</p>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; background-color: #f9f9f9; padding: 16px; border-radius: 8px;">
+        <div>
+          <strong style="display: block; color: #777; font-size: 14px; text-transform: uppercase;">Instructor</strong>
+          <div style="font-size: 18px; color: #333; display: flex; align-items: center; margin-top: 4px;">
+            <mat-icon style="margin-right: 8px; color: #666;">person</mat-icon> {{ course.instructor }}
+          </div>
+        </div>
+        
+        <div>
+          <strong style="display: block; color: #777; font-size: 14px; text-transform: uppercase;">Price</strong>
+          <div style="font-size: 18px; color: #4caf50; display: flex; align-items: center; margin-top: 4px; font-weight: 500;">
+            <mat-icon style="margin-right: 8px;">monetization_on</mat-icon> {{ course.price ? (course.price | currency) : 'Free' }}
+          </div>
+        </div>
+        
+        <div *ngIf="course.date" style="grid-column: span 2; margin-top: 8px;">
+          <strong style="display: block; color: #777; font-size: 14px; text-transform: uppercase;">Start Date</strong>
+          <div style="font-size: 16px; color: #333; display: flex; align-items: center; margin-top: 4px;">
+            <mat-icon style="margin-right: 8px; color: #666;">calendar_today</mat-icon> {{ course.date | date:'longDate' }}
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+
+    <mat-card-actions align="end" style="margin-top: 24px; padding: 0;">
+      <button mat-raised-button color="accent" style="padding: 8px 24px; font-size: 16px;">Enroll Now</button>
+    </mat-card-actions>
+  </mat-card>
+
+  <mat-card *ngIf="!loading && !course" style="padding: 48px; text-align: center;">
+    <mat-icon style="font-size: 64px; height: 64px; width: 64px; color: #f44336; margin-bottom: 16px;">error_outline</mat-icon>
+    <h2 style="color: #333; margin-bottom: 8px;">Course Not Found</h2>
+    <p style="color: #666; margin-bottom: 24px;">The course you are looking for does not exist or has been removed.</p>
+    <button mat-raised-button color="primary" (click)="goBack()">Return to Course Catalog</button>
+  </mat-card>
+</div>

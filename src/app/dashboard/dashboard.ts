@@ -1,10 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
-import { Router } from '@angular/router';
-
+import { MatIconModule } from '@angular/material/icon';
+import { Router, RouterModule } from '@angular/router';
+import { CourseService } from '../services/course';
+import { StudentService } from '../services/student';
+import { EnrollmentService } from '../services/enrollment';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,47 +16,46 @@ import { Router } from '@angular/router';
     CommonModule,
     MatCardModule,
     MatToolbarModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule,
+    RouterModule
   ],
   templateUrl: './dashboard.html',
   styleUrls: ['./dashboard.scss']
 })
-export class DashboardComponent {
-  constructor(private router: Router) {}  
+export class DashboardComponent implements OnInit {
+  private router = inject(Router);
+  private courseService = inject(CourseService);
+  private studentService = inject(StudentService);
+  private enrollmentService = inject(EnrollmentService);
 
-  courses = [
-    {
-      title: 'Angular Fundamentals',
-      instructor: 'John Doe',
-      duration: '6 Weeks'
-    },
-    {
-      title: 'TypeScript Basics',
-      instructor: 'Jane Smith',
-      duration: '4 Weeks'
-    },
-    {
-      title: 'Web Development',
-      instructor: 'Alex Johnson',
-      duration: '8 Weeks'
-    }
-  ];
+  totalCourses = 0;
+  totalStudents = 0;
+  totalEnrollments = 0;
 
-  totalStudents = 340;
-  activeInstructors = 8;
-  totalCourses= 6;
+  ngOnInit(): void {
+    this.courseService.getCourses().subscribe(courses => {
+      this.totalCourses = courses.length;
+    });
 
-  
-  enroll(courseTitle: string) {
-    alert(`You have enrolled in ${courseTitle}`);
+    this.studentService.getStudents().subscribe(students => {
+      this.totalStudents = students.length;
+    });
+
+    this.enrollmentService.getEnrollments().subscribe(enrollments => {
+      this.totalEnrollments = enrollments.length;
+    });
+  }
+
+  viewCourses(): void {
+    this.router.navigate(['/courses']);
+  }
+
+  viewStudents(): void {
+    this.router.navigate(['/students']);
+  }
+
+  enrollStudent(): void {
+    this.router.navigate(['/enroll']);
+  }
 }
-
-  viewDetails(courseTitle: string) {
-  this.router.navigate(['/course', courseTitle]);
-}
-
-  
-
-  
-}
-

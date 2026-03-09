@@ -1,80 +1,61 @@
-<mat-toolbar color="primary">
-  Online Course Dashboard
-</mat-toolbar>
+<div style="padding: 24px; max-width: 1200px; margin: 0 auto;">
+  <div style="margin-bottom: 24px;">
+    <h1 style="margin: 0; color: #3f51b5;">Dashboard Overview</h1>
+    <p style="color: #666; font-size: 16px;">Welcome to the Online Course Management System.</p>
+  </div>
 
-<div style="padding: 16px">
-  <mat-card>
-    <mat-card-title>Dashboard</mat-card-title>
-    <mat-card-content>
-      Welcome to the Online Course Management System
-    </mat-card-content>
-  </mat-card>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+    
+    <!-- Courses Card -->
+    <mat-card class="analytics-card">
+      <mat-card-header>
+        <div mat-card-avatar style="background-color: #e8eaf6; color: #3f51b5; display: flex; align-items: center; justify-content: center; border-radius: 50%;">
+          <mat-icon>library_books</mat-icon>
+        </div>
+        <mat-card-title>Total Courses</mat-card-title>
+        <mat-card-subtitle>Available in catalog</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content style="padding-top: 16px;">
+        <h2 style="font-size: 48px; margin: 0; font-weight: 300; color: #3f51b5;">{{ totalCourses }}</h2>
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <button mat-button color="primary" (click)="viewCourses()">MANAGE COURSES</button>
+      </mat-card-actions>
+    </mat-card>
 
-  <br />
+    <!-- Students Card -->
+    <mat-card class="analytics-card">
+      <mat-card-header>
+        <div mat-card-avatar style="background-color: #e0f2f1; color: #009688; display: flex; align-items: center; justify-content: center; border-radius: 50%;">
+          <mat-icon>people</mat-icon>
+        </div>
+        <mat-card-title>Registered Students</mat-card-title>
+        <mat-card-subtitle>Active global users</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content style="padding-top: 16px;">
+        <h2 style="font-size: 48px; margin: 0; font-weight: 300; color: #009688;">{{ totalStudents }}</h2>
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <button mat-button color="primary" (click)="viewStudents()">MANAGE STUDENTS</button>
+      </mat-card-actions>
+    </mat-card>
 
-  <mat-card>
-    <mat-card-title>Welcome</mat-card-title>
-    <mat-card-content>
-      Your dashboard is ready 🎉
-    </mat-card-content>
-  </mat-card>
-  <div style="display: flex; gap: 16px; margin-top: 16px; flex-wrap: wrap">
+    <!-- Enrollments Card -->
+    <mat-card class="analytics-card">
+      <mat-card-header>
+        <div mat-card-avatar style="background-color: #fff3e0; color: #ff9800; display: flex; align-items: center; justify-content: center; border-radius: 50%;">
+          <mat-icon>school</mat-icon>
+        </div>
+        <mat-card-title>Total Enrollments</mat-card-title>
+        <mat-card-subtitle>Across all courses</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content style="padding-top: 16px;">
+        <h2 style="font-size: 48px; margin: 0; font-weight: 300; color: #ff9800;">{{ totalEnrollments }}</h2>
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <button mat-button color="primary" (click)="enrollStudent()">NEW ENROLLMENT</button>
+      </mat-card-actions>
+    </mat-card>
 
-  <mat-card style="width: 250px">
-    <mat-card-title>Total Courses</mat-card-title>
-    <mat-card-content>
-      <h2>{{ totalCourses }}</h2>
-    </mat-card-content>
-  </mat-card>
-
-  <mat-card style="width: 250px">
-    <mat-card-title>Students Enrolled</mat-card-title>
-    <mat-card-content>
-      <h2>{{ totalStudents }}</h2>
-    </mat-card-content>
-  </mat-card>
-
-  <mat-card style="width: 250px">
-    <mat-card-title>Active Instructors</mat-card-title>
-    <mat-card-content>
-      <h2>{{ activeInstructors }}</h2>
-    </mat-card-content>
-  </mat-card>
-<h2 style="margin-top: 24px">Available Courses</h2>
-
-<div style="display: flex; gap: 16px; flex-wrap: wrap; margin-top: 16px">
-  <mat-card
-  *ngFor="let course of courses"
-  style="width: 250px"
->
-  <mat-card-title>{{ course.title }}</mat-card-title>
-
-  <mat-card-content>
-    <p><strong>Instructor:</strong> {{ course.instructor }}</p>
-    <p><strong>Duration:</strong> {{ course.duration }}</p>
-  </mat-card-content>
-
-  <mat-card-actions>
-    <button
-      mat-raised-button
-      color="primary"
-      (click)="enroll(course.title)"
-    >
-      Enroll
-    </button>
-
-    <button
-      mat-stroked-button
-      color="accent"
-      (click)="viewDetails(course.title)"
-    >
-      View
-    </button>
-  </mat-card-actions>
-</mat-card>
-
-</div>
-
-</div>
-
+  </div>
 </div>

@@ -1,2 +1,28 @@
-<app-dashboard></app-dashboard>
+<mat-toolbar color="primary" class="main-toolbar">
+  <div class="toolbar-brand" routerLink="/">
+    <mat-icon style="margin-right: 8px;">school</mat-icon>
+    <span>Course Dashboard</span>
+  </div>
+  
+  <span class="toolbar-spacer"></span>
+  
+  <div class="nav-links">
+    <button mat-button routerLink="/dashboard" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">
+      Dashboard
+    </button>
+    <button mat-button routerLink="/courses" routerLinkActive="active-link">
+      Courses
+    </button>
+    <button mat-button routerLink="/students" routerLinkActive="active-link">
+      Students
+    </button>
+    <button mat-raised-button color="accent" routerLink="/enroll" style="margin-left: 16px;">
+      Enroll Now
+    </button>
+  </div>
+</mat-toolbar>
 
+<!-- Main content area -->
+<main class="content-container">
+  <router-outlet></router-outlet>
+</main>

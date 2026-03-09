@@ -1,0 +1,99 @@
+{
+  "courses": [
+    {
+      "id": "1",
+      "title": "Angular for Beginners",
+      "description": "Learn the basics of Angular 17. Master components, directives, data binding, and services.",
+      "category": "Frontend",
+      "level": "Beginner",
+      "instructor": "John Doe",
+      "price": 49.99,
+      "date": "2024-01-15T00:00:00Z",
+      "popular": true
+    },
+    {
+      "id": "2",
+      "title": "Advanced RxJS",
+      "description": "Deep dive into reactive programming with RxJS and Observables. Covers subjects, flattening operators, and more.",
+      "category": "Frontend",
+      "level": "Advanced",
+      "instructor": "Jane Smith",
+      "price": 89.99,
+      "date": "2024-02-20T00:00:00Z",
+      "popular": false
+    },
+    {
+      "id": "3",
+      "title": "Node.js REST APIs",
+      "description": "Build scalable RESTful APIs with Node.js, Express, and MongoDB. Includes authentication and validation.",
+      "category": "Backend",
+      "level": "Intermediate",
+      "instructor": "Bob Johnson",
+      "price": 69.99,
+      "date": "2024-03-10T00:00:00Z",
+      "popular": true
+    },
+    {
+      "id": "4",
+      "title": "Fullstack Web Development",
+      "description": "Complete guide to building fullstack applications. Covers HTML, CSS, JavaScript, React, Node, and SQL.",
+      "category": "Fullstack",
+      "level": "Beginner",
+      "instructor": "Alice Williams",
+      "price": 129.99,
+      "date": "2024-04-05T00:00:00Z",
+      "popular": true
+    },
+    {
+      "id": "5",
+      "title": "CSS Grid and Flexbox",
+      "description": "Master modern CSS layout modules. Build complex real-world layouts effortlessly.",
+      "category": "Design",
+      "level": "Beginner",
+      "instructor": "Charlie Brown",
+      "price": 39.99,
+      "date": "2024-05-12T00:00:00Z",
+      "popular": false
+    }
+  ],
+  "students": [
+    {
+      "id": "1",
+      "name": "Alex Mitchell",
+      "email": "alex.m@example.com",
+      "phone": "555-0100"
+    },
+    {
+      "id": "2",
+      "name": "Sarah Connor",
+      "email": "sarah.c@example.com",
+      "phone": "555-0101"
+    },
+    {
+      "id": "3",
+      "name": "Mike Davis",
+      "email": "mike.d@example.com",
+      "phone": "555-0102"
+    }
+  ],
+  "enrollments": [
+    {
+      "id": "1",
+      "studentId": "1",
+      "courseId": "1",
+      "enrollmentDate": "2024-06-01T10:30:00Z"
+    },
+    {
+      "id": "2",
+      "studentId": "2",
+      "courseId": "3",
+      "enrollmentDate": "2024-06-02T14:15:00Z"
+    },
+    {
+      "id": "3",
+      "studentId": "1",
+      "courseId": "5",
+      "enrollmentDate": "2024-06-03T09:00:00Z"
+    }
+  ]
+}
